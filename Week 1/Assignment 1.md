@@ -6,20 +6,16 @@ def min_coins_dp(coins, amount):
     # Base case: No coins are needed to make up the amount 0
     dp[0] = 0
 
-    # Compute the minimum number of coins by using a nested for loop, and updating higher and higher indexes
-    # Loop through each possible idx from 0...amount - 1, where idx represents the amount of money
-    for idx in range(amount): # We do not have to iterate when idx = amount because it cannot further update higher indexes
-        # Loop through each possible coin value
-        for coin in coins:
-            # if dp[idx] is infinity, we cannot achieve 'idx' amount of money
-            if dp[idx] == float('inf'): 
-                # so we continue
-                continue
-
-            # if idx + coin amount of money does not exceed amount
-            if idx + coin <= amount:
-                # update dp at index 'idx + coin'
-                dp[idx + coin] = min(dp[idx] + 1, dp[idx + coin])
+    # Loop through each coin in coins array
+    for coin in coins:
+        # Loop through the dp indicies from 0...amt in reverse order(so that we don't reuse any coin), where the index idx represents money
+        for idx in reversed(range(amount + 1)): 
+            # if it is possible to have 'idx - coin' money with dp[idx - coin] coins, then we can make 'idx' money with dp[idx - coin] + 1 coins
+            #   we do NOT update dp[idx] if 'idx - coin' is a negative value, because we cannot have a negative amount of money
+            #   we do NOT update dp[idx] if dp[idx - coin] equals float('inf'), because it is NOT currently possible to make 'idx - coin' money with any amount of coins
+            if 0 <= idx - coin and dp[idx - coin] != float('inf'): 
+                # so we update dp at index 'idx'
+                dp[idx] = min(dp[idx - coin] + 1, dp[idx])
 
     # If dp[amount] is still infinity, return -1
     if dp[amount] == float('inf'):
@@ -46,17 +42,17 @@ if __name__ == "__main__":
 
 # [2] Testing the Code
 ## First Test
-![Screenshot](https://github.com/codexistent/Data-Structures/assets/77512088/6b19bfae-25ce-43da-bdde-85ab5da38590)
+![Screenshot1](https://github.com/user-attachments/assets/9e862429-8ff6-4ec9-b4e0-bcf0478524cc)
 ## Second Test
-![Screenshot](https://github.com/codexistent/Data-Structures/assets/77512088/48994bf1-d468-4002-9b4d-17f96f2c9ac0)
+![Screenshot2](https://github.com/user-attachments/assets/d56be87a-2ea1-46e0-a43d-7dbc3c95f8ea)
 ## Third Test
-![Screenshot](https://github.com/codexistent/Data-Structures/assets/77512088/54bf21e6-957f-4799-86d2-851ab75702de)
+![Screenshot3](https://github.com/user-attachments/assets/73e4989b-37e5-4667-a29b-ab82fe3da679)
 
 
 # [3] Time Complexity
-The time complexity of this code in Big-O notation is `O(amount * (size of coins list))`, **NOT** `O((amount + 1) * (size of coins list))`.
+The time complexity of this code in Big-O notation is `O((size of coins list) * (amount + 1))`.
 
-This is because the most time-consuming part of the code is the nested for loop. The outer loop of the nested for loops has `amount` iterations, and the inner loop of the nested for loops has `size of coins list` iterations. The time complexity of the code inside the nested for loops is constant, so that's why our final time complexity is `O(amount * (size of coins list))`. 
+This is because the most time-consuming part of the code is the nested for loop. The outer loop of the nested for loops has `size of coins list` iterations, and the inner loop of the nested for loops has `amount + 1` iterations. The time complexity of the code inside the nested for loops is constant, so that's why our final time complexity is `O((size of coins list) * (amount + 1))`. 
 
 # [4] Space Complexity Analysis
 We use :
