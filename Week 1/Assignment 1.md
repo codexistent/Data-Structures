@@ -54,7 +54,9 @@ if __name__ == "__main__":
 
 
 # [3] Time Complexity
-The time complexity of this code in Big-O notation is `O(amount * (size of coins list))`(**NOT** `O((amount + 1) * (size of coins list))`) because the most time-consuming part of the code is the nested for loop. The outer loop of the nested for loops has `amount` iterations, and the inner loop of the nested for loops has `size of coins list` iterations. The time complexity of the code inside the nested for loops is constant, so that's why our final time complexity is `O(amount * (size of coins list))`. 
+The time complexity of this code in Big-O notation is `O(amount * (size of coins list))`, **NOT** `O((amount + 1) * (size of coins list))`.
+
+This is because the most time-consuming part of the code is the nested for loop. The outer loop of the nested for loops has `amount` iterations, and the inner loop of the nested for loops has `size of coins list` iterations. The time complexity of the code inside the nested for loops is constant, so that's why our final time complexity is `O(amount * (size of coins list))`. 
 
 # [4] Space Complexity Analysis
 We use :
