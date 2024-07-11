@@ -6,7 +6,7 @@ def min_coins_dp(coins, amount):
     # Base case: No coins are needed to make up the amount 0
     dp[0] = 0
 
-    # Compute the minimum number of coins by using a nested for loop, and updating higher 
+    # Compute the minimum number of coins by using a nested for loop
     # Loop through each possible idx from 0...amount - 1, where idx represents the amount of money
     for idx in range(amount): # We do not have to iterate when idx = amount because it cannot update higher indexes
         # Loop through each possible coin value
