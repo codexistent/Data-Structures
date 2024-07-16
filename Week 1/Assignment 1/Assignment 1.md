@@ -1,4 +1,4 @@
-# [1] Code (with comments for explanation)
+# [1] Code
 
 In the nested for loop, we will update the indicies of the `dp` array.
 The outer loop of the nested loops iterates through each coin `coin` in coins array. 
