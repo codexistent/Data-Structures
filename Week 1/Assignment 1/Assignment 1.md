@@ -2,7 +2,7 @@
 
 In the nested for loop, we will update the indicies of the `dp` array.
 The outer loop of the nested loops iterates through each coin `coin` in coins array. 
-For each `coin`, we iterate through the dp indicies `idx` from 0...`amt` in reverse order(so that we don't reuse any coin), where `idx` represents money. 
+For each `coin`, we iterate through the dp indicies `idx` from `0...amt` in reverse order(so that we don't reuse any coin), where `idx` represents money. 
 
 Now, inside the inner for loop: 
 We first check if it is possible to have `idx - coin` money with `dp[idx - coin]` coins. If this is true, then we can make `idx` money with `dp[idx - coin] + 1` coins.
