@@ -1,4 +1,16 @@
-# [1] Code (with comments)
+# [1] Code (with comments for explanation)
+
+In the nested for loop, we will update the indicies of the `dp` array.
+The outer loop of the nested loops iterates through each coin `coin` in coins array. 
+For each `coin`, we iterate through the dp indicies `idx` from 0...`amt` in reverse order(so that we don't reuse any coin), where `idx` represents money. 
+
+Now, inside the inner for loop: 
+We first check if it is possible to have `idx - coin` money with `dp[idx - coin]` coins. If this is true, then we can make `idx` money with `dp[idx - coin] + 1` coins.
+We do NOT update `dp[idx]` if `idx - coin` is a negative value, because we cannot have a negative amount of money.
+We do NOT update `dp[idx]` if `dp[idx - coin]` equals `float('inf')`, because it is NOT currently possible to make `'idx - coin'` money with any amount of coins.
+Otherwise, we update `dp[idx]` with the minimum of its current value and `dp[idx - coin] + 1`.
+
+Our answer is ten `dp[amount]`.
 ```python
 def min_coins_dp(coins, amount):
     # Initialize an array dp of size amount + 1 with a high value (infinity)
