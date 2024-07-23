@@ -7,7 +7,7 @@ import sys
 
 # Sorts arr using bubble sort
 def bubble_sort(arr):
-    while(True):
+    for c in range(len(arr)):
         # Iterate through all elements in arr
         for i in range(1, len(arr)):
             # Swap adjacent elements if they are in the wrong order
@@ -132,8 +132,8 @@ def plot_performance(cnt, input_types, sorting_algorithms):
     plt.show()
 
 if __name__ == "__main__":
-    sys.setrecursionlimit(1000000000)
-    cnt = 10000 # Large input size
+    sys.setrecursionlimit(1000000000) # Set to higher recursion limit for merge_sort and quick_sort
+    cnt = 10000
     input_types = [1, 2]  # 1: Random, 2: Sorted
     sorting_algorithms = ["Bubble sort", "Quick sort", "Merge sort"]
     
