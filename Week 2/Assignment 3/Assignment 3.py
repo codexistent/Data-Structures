@@ -110,6 +110,7 @@ def run(cnt, sorting):
         print(i, end=' ')
 
     # Sort array
+    sorted_arr = []
     if sorting == "Bubble sort":
         sorted_arr = bubble_sort(arr)
     elif sorting == "Quick sort":
@@ -119,7 +120,7 @@ def run(cnt, sorting):
     
     # Output sorted array
     print("\nSorted array:")
-    for i in arr:
+    for i in sorted_arr: # Changed this from # 'for i in arr' to 'for i in sorted_arr'
         print(i, end=' ')
 
     # Output sorting time
