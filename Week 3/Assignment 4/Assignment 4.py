@@ -37,10 +37,10 @@ class AVLTree:
             root.left = self.leftRotate(root.left)
             return self.rightRotate(root)
         elif balance < -1 and key > root.right.key:
-            # Case 3 - Left Left rotation
+            # Case 3 - Right Right rotation
             return self.leftRotate(root)
         elif balance > 1 and key < root.left.key:
-            # Case 4 - Right Right rotation
+            # Case 4 - Left Left rotation
             return self.rightRotate(root)
 
         # Return root
