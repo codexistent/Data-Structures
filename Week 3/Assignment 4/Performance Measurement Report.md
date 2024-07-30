@@ -9,7 +9,7 @@ Our function `insert()` takes at most `O(log_2(n))` time, where `n` represents t
 
 When we first call `insert()`, we start at the root of the AVL Tree and go downward, in total traversing a maximum of around `log_2(n)` nodes. For each of the nodes, there are some constant-time operations. Thus, our worst-case time complexity for `insert()` is `O(log_2(n))`.
 
-## Left Rotation / Right Rotation
+## Left / Right Rotation
 The functions `leftRotate()` and `rightrotate()` run in `O(1)`, or "constant-time". This is because when we rotate the tree, we are only re-assigning some left and right pointers, and updating a few heights. All operations of these two functions happen in constant time, thus they have a total `O(1)` time complexity.
 
 ## Contains
