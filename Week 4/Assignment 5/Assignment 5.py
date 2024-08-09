@@ -17,7 +17,7 @@ class HashTable:
     
     def rehash(self):
         """
-        Rehashes the table if number of elements(or the load factor) becomes too much
+        Rehashes the table if number of elements(or the load factor) becomes too high
         """
         old_size = self.size
         old_table = self.table
