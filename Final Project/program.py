@@ -1,7 +1,5 @@
 import random
-import time
 import sys
-import matplotlib.pyplot as plt
 
 #   ALGORITHM 1 - NESTED FOR LOOPS - O(N^2)
 # Go through every pair of non-equal indicies in our array to check if the sum of any two elements at these indicies equals the sum 'k'
