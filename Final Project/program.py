@@ -322,9 +322,9 @@ def generate_input(cnt):
     return [random.randint(0, 999999) for _ in range(cnt)] 
 
 if __name__ == "__main__":
-    # Get array size, checking if there is invalid input
+    # Get array size, target sum, and desired algorithm; check if there is invalid input
     try:
-        n = int(input("Array size: "))
+        n, k, algorithm = map(int,(input().split()))
     except ValueError:
         print("Invalid input.")
         sys.exit()
@@ -334,23 +334,9 @@ if __name__ == "__main__":
         print("Invalid input.")
         sys.exit()
 
-    # Get target sum, checking if there is invalid input
-    try:
-        k = int(input("Sum: "))
-    except ValueError:
-        print("Invalid input.")
-        sys.exit()
-    
-    # Get desired algorithm, checking if there is invalid input
-    try:
-        algorithm = int(input("Algorithm Options\n '0' for Nested Loops - O(N^2)\n '1' for Merge Sorting - O(N log N)\n '2' for Hash Table - O(N)\n '3' for AVL Tree - O(N log N)\nChoose an algorithm(0 to 3): "))
-    except ValueError:
-        print("Invalid algorithm.")
-        sys.exit()
-
     array = generate_input(n)
 
-    # print("Original array: ", array)
+    print("Original array: ", array)
 
     result = None
     # Algorithm 1 - Nested Loops - O(N^2)
