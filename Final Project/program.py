@@ -61,7 +61,7 @@ def algorithm_2(array, k):
 
     # keep a variable 'pointer' representing an index value that monotonically moves right
     pointer = 0
-    # for every index 'i' in range 0...len(sorted_array)-1
+    # for every index 'i' in range 0...len(sorted_array)-2
     for i in range(0, len(sorted_array) - 1):
         pointer = max(pointer, i + 1)
         # since the array is sorted, while sorted_array[i] + sorted_array[pointer] is LESS than target value 'k'...
@@ -155,22 +155,6 @@ class HashTable:
 
         # Return the value if found, else return None
         return None
-
-    def delete(self, key):
-        """
-        Delete a key-value pair from the hash table.
-        If the key is not found, do nothing.
-        """
-        index = self._hash_function(key)
-        bucket = self.table[index]
-        
-        # Find the key in the bucket and remove it
-        for i, (k, v) in enumerate(bucket):
-            if(k == key):
-                del bucket[i]
-
-                # Decrement number of elements in table
-                self.elements = self.elements - 1
 
 # Uses Hash Table to check if desired elements exist in array
 def algorithm_3(array, k):
@@ -316,9 +300,9 @@ def algorithm_4(array, k):
     # Return None if no valid pair found
     return None
 
-# MAIN FUNCTIONS
+# PRIMARY FUNCTIONS
 def generate_input(cnt):
-    # Generate an array of 'cnt' totally random numbers in the range 0...10,000,000 inclusive
+    # Generate an array of 'cnt' totally random numbers in the range 0...999,999 inclusive
     return [random.randint(0, 999999) for _ in range(cnt)] 
 
 if __name__ == "__main__":
