@@ -27,9 +27,9 @@ Array Size = 40,000 | 37.0893 sec | 0.0964 sec | 0.0979 sec | 0.3126 sec
 Array Size = 80,000 | 146.8152 sec | 0.2030 sec | 0.2189 sec | 0.6825 sec
 Array Size = 160,000 | 587.6189 sec | 0.4301 sec | 0.4960 sec | 1.4814 sec
 
-As we can see from the table above, as well as the graph our program generated, the smaller the array size is the less of a running time difference the algorithms have. However, as our array size gradually increases, so does the gap in running times for all the algorithms.
+As we can see from the table above, as well as the graph our program generated, the smaller the array size, the less of a running time difference the algorithms have.
 
-The algorithm that uses Nested For Loops takes the longest according to our graph, while the Merge Sort, Hash Table, and AVL Tree functions take a similar amount of time. Let's check if this is valid.
+However, as apparent when our array sizes increase, the algorithm that uses Nested For Loops takes the longest according to our graph, while the Merge Sort, Hash Table, and AVL Tree functions take a similar amount of time. Let's check if this is valid.
 
 ## Algorithm 1 - Nested For Loops
 The nested for loops algorithm should take `O(N^2)` time. 
