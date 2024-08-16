@@ -371,7 +371,7 @@ def plot_performance(algorithms, sizes, algorithm_names):
     plt.xlabel('Number of Elements')
     plt.ylabel('Average Time (seconds)')
     plt.title('Algorithm Performance for Searching an Array for Pair with Target Sum')
-    plt.xticks(sizes, ['100', '200', '400', '800', '1600'])
+    plt.xticks(sizes, ['10000', '20000', '40000', '80000', '160000'])
     plt.legend()
     plt.show()
 
@@ -381,4 +381,4 @@ def generate_input(cnt):
     return [random.randint(0, 999999) for _ in range(cnt)] 
 
 if __name__ == "__main__":
-    plot_performance([0, 1, 2, 3], [100, 200, 400, 800, 1600], ["Nested Loops", "Merge Sorting", "Hash Table", "AVL Tree"])
+    plot_performance([0, 1, 2, 3], [10000, 20000, 40000, 80000, 160000], ["Nested Loops", "Merge Sorting", "Hash Table", "AVL Tree"])
