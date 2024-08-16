@@ -64,7 +64,7 @@ def algorithm_2(array, k):
     # keep a variable 'pointer' representing an index value that monotonically moves left
     pointer = len(sorted_array) - 1
     # for every index 'i' in range 0...len(sorted_array)-1
-    for i in range(0, len(sorted_array) - 1):
+    for i in range(0, len(sorted_array)):
         # since the array is sorted, while sorted_array[i] + sorted_array[pointer] is GREATER than target value 'k'...
         while(i < pointer - 1 and sorted_array[i] + sorted_array[pointer] > k):
             # ... we will be more likely to get our target value if we move 'pointer' LEFT to a smaller value(once again, this is because since our array is sorted)
