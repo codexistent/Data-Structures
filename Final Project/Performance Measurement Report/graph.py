@@ -207,7 +207,6 @@ class Node:
 class AVLTree:
     def __init__(self):
         self.root = None
-
     def insert(self, root, key):  
         # Check if we can insert node here, or we need to traverse to left/right keys of 'root'
         if root == None:
@@ -219,14 +218,11 @@ class AVLTree:
         else:
             # Traverse to right branch of 'root'
             root.right = self.insert(root.right, key)
-
         # Update height of 'root'
         root.height = 1 + max(self.getHeight(root.left), self.getHeight(root.right))
-
         # Balance the tree
         # First find balance factor of current node
         balance = self.getBalance(root)
-
         if balance < -1 and key < root.right.key:
             # Case 1 - Right Left rotation
             root.right = self.rightRotate(root.right)
@@ -241,55 +237,43 @@ class AVLTree:
         elif balance > 1 and key < root.left.key:
             # Case 4 - Left Left rotation
             return self.rightRotate(root)
-
         # Return root
         return root
         
-
     # Performs left rotation on 'z'
     def leftRotate(self, z):
         y = z.right
         T2 = y.left # T2 stores 'y's left subtree...
-
         # Performing rotation
         y.left = z
         z.right = T2 # ... which will be reassigned as the right subtree of 'z'
-
         # Update heights; we only have to update the heights of 'y' and 'z', since all heights of nodes inside 'T2' remain the same
         z.height = 1 + max(self.getHeight(z.left), self.getHeight(z.right))
         y.height = 1 + max(self.getHeight(y.left), self.getHeight(y.right))
-
         # Return new root 'y'
         return y
-
     # Performs right rotation on 'z'
     def rightRotate(self, z):
         y = z.left
         T2 = y.right # T2 stores 'y's right subtree...
-
         # Performing rotation
         y.right = z
         z.left = T2 # ... which will be reassigned as the left subtree of 'z'
-
         # Update heights; we only have to update the heights of 'y' and 'z', since all heights of nodes inside 'T2' remain the same
         z.height = 1 + max(self.getHeight(z.left), self.getHeight(z.right))
         y.height = 1 + max(self.getHeight(y.left), self.getHeight(y.right))
-
         # Return new root 'y'
         return y
-
     def getHeight(self, root):
         # Return the height of the node
         if not root:
             return 0
         return root.height
-
     def getBalance(self, root):
         # Return the balance factor of the node
         if not root:
             return 0
         return self.getHeight(root.left) - self.getHeight(root.right)
-
     def contains(self, root, key):
         # Check if the key exists in the AVL tree
         if not root:
@@ -300,13 +284,11 @@ class AVLTree:
             return self.contains(root.left, key)
         else:
             return self.contains(root.right, key)
-
 # Uses AVL Tree to tell if a pair of elements in array adds up to desired sum 'k'
 def algorithm_4(array, k):
     # Create AVL Tree 'avl_tree'
     avl_tree = AVLTree()
     root = None
-
     # For each element i in array
     for i in array:
         # If we have gone over a past element with value k - i, then the avl_tree will contain it...
@@ -316,7 +298,6 @@ def algorithm_4(array, k):
         
         # Insert the value i into avl_tree
         root = avl_tree.insert(root, i)
-
     # Return None if no valid pair found
     return None
 
