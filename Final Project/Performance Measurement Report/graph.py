@@ -61,15 +61,14 @@ def algorithm_2(array, k):
     # merge sort array
     sorted_array = merge_sort(array)
 
-    # keep a variable 'pointer' representing an index value that monotonically moves right
-    pointer = 0
+    # keep a variable 'pointer' representing an index value that monotonically moves left
+    pointer = len(sorted_array) - 1
     # for every index 'i' in range 0...len(sorted_array)-1
     for i in range(0, len(sorted_array) - 1):
-        pointer = max(pointer, i + 1)
-        # since the array is sorted, while sorted_array[i] + sorted_array[pointer] is LESS than target value 'k'...
-        while(pointer + 1 < len(sorted_array) and sorted_array[i] + sorted_array[pointer] < k):
-            # ... we will be more likely to get our target value if we move 'pointer' RIGHT to a larger value(once again, this is because since our array is sorted)
-            pointer = pointer + 1
+        # since the array is sorted, while sorted_array[i] + sorted_array[pointer] is GREATER than target value 'k'...
+        while(i < pointer - 1 and sorted_array[i] + sorted_array[pointer] > k):
+            # ... we will be more likely to get our target value if we move 'pointer' LEFT to a smaller value(once again, this is because since our array is sorted)
+            pointer = pointer - 1
         
         # check if sorted_array[i] + sorted_array[pointer] gets us to our target sum 'k'
         if(sorted_array[i] + sorted_array[pointer] == k):
