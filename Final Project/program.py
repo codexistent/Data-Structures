@@ -68,6 +68,9 @@ def algorithm_2(array, k):
             # ... we will be more likely to get our target value if we move 'pointer' LEFT to a smaller value(once again, this is because since our array is sorted)
             pointer = pointer - 1
         
+        if(i >= pointer):
+            break
+        
         # check if sorted_array[i] + sorted_array[pointer] gets us to our target sum 'k'
         if(sorted_array[i] + sorted_array[pointer] == k):
             # If so, we will return the pair (sorted_array[i], sorted_array[pointer])
