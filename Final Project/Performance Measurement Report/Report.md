@@ -52,6 +52,6 @@ This algorithm also inserts keys and checks if they exist; it just uses an AVL t
 Nested For Loops must take the longest at `O(N^2)` time. Next, Merge Sort and AVL Tree take much less time at `O(N log N)`.
 Finally, hash table should be fastest at `O(N)`. 
 
-As the array sizes get larger, the difference between `N^2` and `N log N` or `N` get larger; this is clearly shown in the graph, as the gap between the Nested For Loops runtime and all the other algorithms increases as the array size increases.
+As the array sizes get larger, the difference between Nested Loop's large `N^2` runtime and `N log N` or `N` get larger. This is clearly shown in the graph, as Nested For Loops runtime increases significantly above all the other algorithms as `N` increases.
 
 Moreover, the runtime for Merge Sort
