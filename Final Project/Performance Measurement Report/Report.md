@@ -54,4 +54,4 @@ Finally, hash table should be fastest at `O(N)`.
 
 As the array sizes get larger, the difference between Nested Loop's large `N^2` runtime and `N log N` or `N` get larger. This is clearly shown in the graph, as Nested For Loops runtime increases significantly above all the other algorithms as `N` increases.
 
-Moreover, the runtime for Merge Sort
+Next, AVL Tree, Merge Sort and Hash Table algorithms use about the same amounts of time, as apparent from the graph(where the 3 algorithms' lines clearly intersect). This makes sense because AVL Tree and Merge Sort take the same time complexity of `O(N log N)`. Additionally, while Hash Table takes `O(N)` on average, collisions can cause its performance to drop at times. Also, `log N` is actually quite small, so the difference between `O(N)` and `O(N log N)` should be insignificant especially at large array sizes like `160,000`.
